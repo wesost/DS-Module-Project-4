@@ -1,9 +1,9 @@
 // Wes Ostlund
 // cs-273-2 mp4
 //
-#include<iostream>
-#include<fstream>
-#include <map>
+#include <iostream>
+#include <fstream> // file i/o
+#include <map> // using maps as associative data structure
 #include <vector>
 
 using std::string;
@@ -34,12 +34,6 @@ int main()
         }
     }
 
-
-
-    // UNNEEDED
-    // std::map<string,int>::iterator it; // create an iterator to go over the existing data structure
-    // int i = 0;
-
     for (int i = 0; i < allWords.size(); i++) // iterate through the vector holding all the words
     {                                                                   
         wordOccured[numOccurences[allWords[i]]].push_back(allWords[i]); // the word at position i is used as the key for numOccurences, the number
@@ -48,23 +42,19 @@ int main()
     }
 
     int n;
-    cout << "Enter a number to see which words occured that many times" << endl;
-    
+    cout << "Enter a number to see which words occured that many times" << endl; // get user input
     std::cin >> n;
-    for (int i =0; i<wordOccured[n].size(); i++){
-    cout << wordOccured[n][i] << "  ||  ";
+
+    cout << wordOccured[n].size() << " words occured " << n << " times! " << endl; // display how many words total occured n times
+    cout << "They are: " << endl;
+    cout << "-----" << endl;
+
+    for (int i = 0; i<wordOccured[n].size(); i++){ // print out each word which occured n times
+    cout << wordOccured[n][i] << "  ||  "; // wordOccured[n] gets the vector of words which occured n times, i accesses each word
     }
-
-    // UNNEEDED
-    // for(it = numOccurences.begin(); it != numOccurences.end(); ++it){
-    //     // numOccurences["the"];
-    //     wordOccured[numOccurences[allWords[i]]];
-
-    //     i++; // increment what word we're on
-    // }
-
-
-
+    
+    cout << endl;
+    cout << "-----" << endl;
 
     openBook.close(); // close the stream object we worked with
     return 0;
